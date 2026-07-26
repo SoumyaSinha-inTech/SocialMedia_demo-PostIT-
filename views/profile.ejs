@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style1.css">
+    <title>Profile</title>
+</head>
+
+<body>
+    <div class="top">
+        <div class="info" style="display: flex; gap: 10px; justify-self: center;">
+            <div style=" width: 75px; height: 50px; border-radius: 8px; display: flex; gap: 4px;">
+                <img style="width: 100%; height: 100%; object-fit: cover; overflow: hidden; " src="images/uploads/<%=founduser.profilepic%>" alt="">
+                <a style="font-size: 12px; text-decoration: none; margin-top: 20px;" href="/upload">🖋️</a>
+            </div>
+            <h1 style="margin-top: 3px;"> Hello, <%=founduser.name%> 👋🏻</h1>
+        </div>
+        <a href="/logout" class="button">Logout</a>
+    </div>
+    <div class="createpost" style="margin: 6vh 0;">
+        <h4>Create New Post</h4>
+        <form style="display: flex; gap: 3vh; margin-top: 2vh; flex-direction: column; width: 50vw;" method="post"
+            action="/post">
+            <textarea placeholder="What's in your mind?"
+                style=" color: white; padding: 6px; background-color: gray; border: none; min-height: 10vh;"
+                name="content"></textarea>
+            <input style="background-color: rgb(0, 115, 255); border: none; width: 10vw; height: 4vh;" type="submit"
+                value="Create New Post">
+        </form>
+    </div>
+    <div class="yourPost" style="display: flex; flex-direction: column; gap: 3vh;">
+        <h3 style="color: gray;">Your Posts</h3>
+        <% founduser.posts.reverse().forEach((post)=>{ %> <!-- reverse()= to show the latest element     -->
+
+            <div class="post"
+                style="width: 50vw;   position: relative; min-height: 10vh; background-color: rgb(76, 76, 76); padding: 8px;">
+                <h5 style="color: rgb(0, 174, 255); font-style: italic;">@<%=founduser.username%>
+                </h5>
+                <p style="padding: 8px; color: white; font-size: small;">
+                    <%=post.content%>
+                </p>
+                <div class="box">
+                    <div style="color: rgb(175, 175, 175);padding: 8px; font-size: small; position: absolute;
+    bottom: 5px;
+    left: 5px;" class="like">
+                        <%=post.likes.length%> Likes
+                    </div>
+                </div>
+                <div class="stuff" style="display: flex; justify-content: end; gap: 2vw; padding-top: 10px;">
+                    <a href="/like/<%=post._id%>" style="color: rgb(253, 57, 57);">
+                        <%=post.likes.indexOf(founduser._id)===-1?"Like":"Unlike"%>
+                    </a>
+                    <a href="/edit/<%=post._id%>" style="color: gray ;">Edit </a>
+                </div>
+            </div>
+            <% })%>
+    </div>
+</body>
+
+</html>

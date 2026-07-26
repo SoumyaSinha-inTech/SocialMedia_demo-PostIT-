@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style1.css">
+    <title>Profile</title>
+</head>
+
+<body>
+    <div class="top">
+        <a href="/logout" class="button">Logout</a>
+    </div>
+    <div class="createpost" style="margin: 6vh 0;">
+        <h4>Update Post</h4>
+        <form style="display: flex; gap: 3vh; margin-top: 2vh; flex-direction: column; width: 50vw;" method="post"
+            action="/update/<%=post._id%>">
+            <textarea style=" color: white; padding: 6px; background-color: gray; border: none; min-height: 10vh;"
+                name="content"><%=post.content%></textarea>
+            <input style="background-color: rgb(255, 197, 4); border: none; width: 10vw; height: 4vh;" type="submit"
+                value="Update Post">
+        </form>
+    </div>
+</body>
+
+</html>

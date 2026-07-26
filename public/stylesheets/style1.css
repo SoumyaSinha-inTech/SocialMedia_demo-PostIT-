@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(7, 2, 2, 0.881);
+    font-family: Geomini;
+    margin: 5vh 3vw;
+    color: white;
+}
+.top{
+    display: flex;
+    gap: 55vw;
+    
+    align-items: center;
+}
+.button{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 6vw;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+}
+.top a{
+    padding-top: 10px;
+}
+textarea::placeholder {
+    color: white;
+    opacity: 1; /* Makes it fully white in some browsers */
+}
